@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rahil Barawal — Personal Portfolio
 
-## Getting Started
+Premium personal developer portfolio for **Rahil Barawal**, Mobile App Developer & Frontend Developer.
 
-First, run the development server:
+Deployed as a standalone **Next.js → Vercel** application. No backend, database, API keys, or Railway dependency for this site.
+
+## Overview
+
+Recruiter-focused portfolio showcasing:
+
+- Professional experience (Swivelt, Nityo / Istrives)
+- Frontend & mobile expertise (Angular, Ionic, React, Next.js, TypeScript)
+- AI / full-product engineering (Next.js, Node.js, PostgreSQL, RAG, payments)
+- Live products: DhandaMart, AidLoop, RupeeRadar, The Draft Desk, Study Pilot Engine
+
+## Tech stack
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Lucide React
+
+## Local setup
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Vercel deployment
 
-To learn more about Next.js, take a look at the following resources:
+1. Push this repository to GitHub.
+2. Import the repo in [Vercel](https://vercel.com).
+3. Use default Next.js settings (no env vars required).
+4. Deploy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Architecture for this portfolio: **Next.js → Vercel only**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Where profile information lives
 
-## Deploy on Vercel
+All personal contact and positioning data:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+src/data/profile.ts
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Update name, title, email, phone, GitHub, LinkedIn, SEO copy, and related fields there. Components consume this file instead of hardcoding profile URLs.
+
+## Where projects live
+
+```text
+src/data/projects.ts
+```
+
+Each project follows the `Project` interface (`slug`, `title`, `subtitle`, `description`, `technologies`, `highlights`, `category`, optional `liveUrl` / `githubUrl`, etc.).
+
+### Add a new project
+
+1. Append an object to the `projects` array in `src/data/projects.ts`.
+2. Set a unique `slug` (used for `/projects/[slug]`).
+3. Choose `category`: `"Frontend" | "Mobile" | "Full Stack" | "AI"`.
+4. Add `liveUrl` / `githubUrl` only when real.
+5. Optionally set `featured: true` for the primary featured project.
+6. Rebuild / redeploy.
+
+Related data files:
+
+- `src/data/experience.ts` — work history
+- `src/data/skills.ts` — skill groups
+- `src/data/education.ts` — education & certifications
+
+## Project structure
+
+```text
+src/
+  app/
+    layout.tsx
+    page.tsx
+    globals.css
+    robots.ts
+    sitemap.ts
+    projects/[slug]/page.tsx
+  components/
+    Navbar.tsx
+    Hero.tsx
+    CredibilityBar.tsx
+    About.tsx
+    Skills.tsx
+    Experience.tsx
+    Projects.tsx
+    ProjectCard.tsx
+    FeaturedProject.tsx
+    Contact.tsx
+    SocialLinks.tsx
+    Footer.tsx
+    Education.tsx
+  data/
+    profile.ts
+    projects.ts
+    experience.ts
+    skills.ts
+    education.ts
+  lib/
+    utils.ts
+```
+
+## Notes
+
+- Contact is mailto / LinkedIn / GitHub / phone only — no backend contact form.
+- Railway, Supabase, PostgreSQL, etc. may appear in **project** tech stacks; they are not used by this portfolio app.
+- Update `siteUrl` in `src/data/profile.ts` after you know your final Vercel domain (used for sitemap, canonical, and JSON-LD).
+# Rahil-Portfolio
