@@ -37,8 +37,8 @@ export function Hero() {
       className="hero relative flex min-h-[100svh] flex-col overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      <div className="grid flex-1 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="relative flex flex-col justify-between px-[clamp(1.25rem,4vw,4.5rem)] py-12 sm:py-16 lg:py-14">
+      <div className="grid min-w-0 flex-1 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="relative flex min-w-0 flex-col justify-between px-[clamp(1.5rem,5vw,4.5rem)] py-12 sm:py-16 lg:py-14">
           <div className="fade-up flex flex-wrap items-center justify-between gap-4">
             <p className="font-mono text-sm uppercase tracking-[0.18em] text-[var(--muted-dim)]">
               {profile.location}
@@ -65,11 +65,11 @@ export function Hero() {
               id="hero-heading"
               className="font-[family-name:var(--font-display)] font-extrabold leading-[0.86] tracking-[-0.055em] text-foreground"
             >
-              <span className="hero-name-line block text-[clamp(3.5rem,9.5vw,7.75rem)]">
+              <span className="hero-name-line block max-w-full text-[clamp(2.75rem,12vw,7.75rem)]">
                 {firstName}
               </span>
               <span
-                className="hero-name-line block text-[clamp(3.5rem,9.5vw,7.75rem)]"
+                className="hero-name-line block max-w-full text-[clamp(2.75rem,12vw,7.75rem)]"
                 style={{ animationDelay: "90ms" }}
               >
                 {lastName}
@@ -123,7 +123,7 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="hero-plane relative flex min-h-[26rem] flex-col overflow-hidden bg-[var(--hero-plane)] text-[var(--hero-plane-text)] sm:min-h-[30rem] lg:min-h-full">
+        <div className="hero-plane relative flex min-h-[26rem] min-w-0 flex-col overflow-hidden bg-[var(--hero-plane)] text-[var(--hero-plane-text)] sm:min-h-[30rem] lg:min-h-full">
           <div
             className="hero-plane-slash absolute -left-16 top-0 h-[58%] w-[70%] skew-x-[-18deg] bg-[var(--accent)]"
             aria-hidden="true"
@@ -144,7 +144,7 @@ export function Hero() {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 flex flex-1 flex-col justify-between px-[clamp(1.25rem,4vw,3.5rem)] py-10 sm:py-12 lg:py-14">
+          <div className="relative z-10 flex min-w-0 flex-1 flex-col justify-between px-[clamp(1.5rem,5vw,3.5rem)] py-10 sm:py-12 lg:py-14">
             <ul className="space-y-3">
               {focusAreas.map((item, index) => (
                 <li

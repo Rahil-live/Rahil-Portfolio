@@ -28,7 +28,7 @@ export function Contact() {
         <div>
           <a
             href={`mailto:${profile.email}`}
-            className="block font-[family-name:var(--font-display)] text-2xl font-bold text-[var(--accent)] transition-colors hover:text-[#ff6b5a] sm:text-3xl"
+            className="block break-all font-[family-name:var(--font-display)] text-2xl font-bold text-[var(--accent)] transition-colors hover:text-[#ff6b5a] sm:text-3xl"
           >
             {profile.email}
           </a>

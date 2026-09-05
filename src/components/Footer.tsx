@@ -65,9 +65,22 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-10 border-t border-[var(--border)] pt-6 text-base text-[var(--muted-dim)]">
-          © 2026 {profile.name}. All rights reserved.
-        </p>
+        <div className="mt-10 flex flex-col gap-4 border-t border-[var(--border)] pt-6 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+          <p className="text-base text-[var(--muted-dim)]">
+            © 2026 {profile.name}. All rights reserved.
+          </p>
+          <div>
+            <p className="font-mono text-sm uppercase tracking-[0.14em] text-[var(--muted-dim)]">
+              Built with
+            </p>
+            <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-base text-[var(--muted)]">
+              <li>Next.js 16</li>
+              <li>React 19</li>
+              <li>TypeScript</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </footer>
   );
