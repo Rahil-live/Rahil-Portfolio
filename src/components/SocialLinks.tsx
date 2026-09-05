@@ -60,7 +60,7 @@ export function SocialLinks({
             {...(external
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] bg-[rgba(15,22,35,0.7)] text-[var(--muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="inline-flex h-10 w-10 items-center justify-center border border-[var(--border)] bg-[var(--card)] text-[var(--muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
             <Icon size={iconSize[size]} aria-hidden="true" />
           </a>

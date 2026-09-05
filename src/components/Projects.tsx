@@ -41,12 +41,12 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="section-pad bg-[rgba(11,18,32,0.45)]"
+      className="section-pad bg-[var(--surface)]"
       aria-labelledby="projects-heading"
     >
       <div className="container-page">
-        <div className="max-w-2xl">
-          <p className="section-eyebrow mb-3">Projects</p>
+        <div className="max-w-3xl">
+          <p className="section-eyebrow mb-3">04 — Projects</p>
           <h2 id="projects-heading" className="section-title">
             Selected products & live deployments
           </h2>
@@ -57,7 +57,7 @@ export function Projects() {
         </div>
 
         <div
-          className="mt-8 flex flex-wrap gap-2"
+          className="mt-8 flex flex-wrap gap-x-1 gap-y-2 border-b border-[var(--border)]"
           role="tablist"
           aria-label="Filter projects by category"
         >
@@ -69,10 +69,10 @@ export function Projects() {
               aria-selected={active === filter}
               onClick={() => setActive(filter)}
               className={cn(
-                "cursor-pointer rounded-lg border px-3.5 py-2 text-sm transition-all duration-200",
+                "cursor-pointer border-b-2 px-3 py-3 text-base transition-colors duration-200",
                 active === filter
-                  ? "border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]"
-                  : "border-[var(--border)] text-[var(--muted)] hover:border-[var(--border-strong)] hover:text-foreground",
+                  ? "border-[var(--accent)] text-foreground"
+                  : "border-transparent text-[var(--muted)] hover:text-foreground",
               )}
             >
               {filter}
@@ -86,14 +86,14 @@ export function Projects() {
           </div>
         ) : null}
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-2 divide-y divide-[var(--border)] border-y border-[var(--border)]">
           {filtered.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
 
         {filtered.length === 0 && !(showFeatured && featured) ? (
-          <p className="mt-10 text-sm text-[var(--muted)]">
+          <p className="mt-10 text-base text-[var(--muted)]">
             No projects in this category yet.
           </p>
         ) : null}

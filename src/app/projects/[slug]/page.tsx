@@ -51,19 +51,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <>
       <Navbar />
       <main className="section-pad pt-10">
-        <div className="container-page max-w-4xl">
+        <div className="container-page">
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-[var(--muted)] transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-2 text-base text-[var(--muted)] transition-colors hover:text-foreground"
           >
             <ArrowLeft size={14} aria-hidden="true" />
             Back to projects
           </Link>
 
-          <header className="mt-6">
+          <header className="mt-8 border-b border-[var(--border)] pb-8">
             <p className="section-eyebrow mb-3">{project.category}</p>
             <h1 className="section-title">{project.title}</h1>
-            <p className="mt-2 text-lg text-[var(--accent)]">{project.subtitle}</p>
+            <p className="mt-3 text-xl text-[var(--muted)]">{project.subtitle}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {project.liveUrl ? (
                 <a
@@ -90,58 +90,61 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </header>
 
-          <section className="mt-10 space-y-8">
-            <div className="card-surface p-6">
-              <h2 className="text-base font-semibold text-foreground">Overview</h2>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+          <section className="mt-10 space-y-10">
+            <div>
+              <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-foreground">
+                Overview
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-[var(--muted)] md:text-lg">
                 {project.overview ?? project.description}
               </p>
             </div>
 
             {project.problem ? (
-              <div className="card-surface p-6">
-                <h2 className="text-base font-semibold text-foreground">Problem</h2>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+              <div>
+                <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-foreground">
+                  Problem
+                </h2>
+                <p className="mt-3 text-base leading-relaxed text-[var(--muted)] md:text-lg">
                   {project.problem}
                 </p>
               </div>
             ) : null}
 
             {project.solution ? (
-              <div className="card-surface p-6">
-                <h2 className="text-base font-semibold text-foreground">Solution</h2>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+              <div>
+                <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-foreground">
+                  Solution
+                </h2>
+                <p className="mt-3 text-base leading-relaxed text-[var(--muted)] md:text-lg">
                   {project.solution}
                 </p>
               </div>
             ) : null}
 
             {project.architecture ? (
-              <div className="card-surface p-6">
-                <h2 className="text-base font-semibold text-foreground">
+              <div>
+                <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-foreground">
                   Architecture
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+                <p className="mt-3 text-base leading-relaxed text-[var(--muted)] md:text-lg">
                   {project.architecture}
                 </p>
               </div>
             ) : null}
 
             {project.stats ? (
-              <div className="card-surface p-6">
-                <h2 className="text-base font-semibold text-foreground">
+              <div>
+                <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-foreground">
                   Architecture scale
                 </h2>
-                <dl className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <dl className="mt-4 grid grid-cols-2 gap-px border border-[var(--border)] bg-[var(--border)] sm:grid-cols-4">
                   {project.stats.map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="rounded-xl border border-[var(--border)] bg-[rgba(7,11,20,0.55)] p-4"
-                    >
-                      <dt className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-[var(--muted-dim)]">
+                    <div key={stat.label} className="bg-[var(--card)] p-4">
+                      <dt className="font-mono text-xs uppercase tracking-[0.14em] text-[var(--muted-dim)] md:text-sm">
                         {stat.label}
                       </dt>
-                      <dd className="mt-1 text-2xl font-semibold text-foreground">
+                      <dd className="mt-1 font-[family-name:var(--font-display)] text-2xl font-bold text-foreground">
                         {stat.value}
                       </dd>
                     </div>
@@ -150,8 +153,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             ) : null}
 
-            <div className="card-surface p-6">
-              <h2 className="text-base font-semibold text-foreground">
+            <div>
+              <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-foreground">
                 Technology stack
               </h2>
               <ul className="mt-4 flex flex-wrap gap-2">
@@ -163,18 +166,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </ul>
             </div>
 
-            <div className="card-surface p-6">
-              <h2 className="text-base font-semibold text-foreground">
+            <div>
+              <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-foreground">
                 Key features
               </h2>
               <ul className="mt-4 space-y-2.5">
                 {project.highlights.map((highlight) => (
                   <li
                     key={highlight}
-                    className="flex gap-2.5 text-sm leading-relaxed text-[var(--muted)]"
+                    className="flex gap-3 text-base leading-relaxed text-[var(--muted)]"
                   >
                     <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                      className="mt-2 h-px w-4 shrink-0 bg-[var(--accent)]"
                       aria-hidden="true"
                     />
                     <span>{highlight}</span>
@@ -184,18 +187,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
 
             {project.engineeringDecisions?.length ? (
-              <div className="card-surface p-6">
-                <h2 className="text-base font-semibold text-foreground">
+              <div>
+                <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-foreground">
                   Engineering decisions
                 </h2>
                 <ul className="mt-4 space-y-2.5">
                   {project.engineeringDecisions.map((decision) => (
                     <li
                       key={decision}
-                      className="flex gap-2.5 text-sm leading-relaxed text-[var(--muted)]"
+                      className="flex gap-3 text-base leading-relaxed text-[var(--muted)]"
                     >
                       <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                        className="mt-2 h-px w-4 shrink-0 bg-[var(--accent)]"
                         aria-hidden="true"
                       />
                       <span>{decision}</span>

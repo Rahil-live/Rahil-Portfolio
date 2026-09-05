@@ -8,18 +8,20 @@ type FeaturedProjectProps = {
 
 export function FeaturedProject({ project }: FeaturedProjectProps) {
   return (
-    <article className="card-surface overflow-hidden">
-      <div className="border-b border-[var(--border)] bg-[linear-gradient(135deg,rgba(52,211,153,0.08),rgba(56,189,248,0.04)_45%,transparent)] p-6 sm:p-8 lg:p-10">
-        <p className="section-eyebrow mb-3">Featured Project</p>
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+    <article className="overflow-hidden border border-[var(--border)] bg-[var(--hero-plane)] text-[var(--hero-plane-text)]">
+      <div className="p-6 sm:p-8 lg:p-10">
+        <p className="font-mono text-sm uppercase tracking-[0.16em] text-[var(--accent)]">
+          Featured Project
+        </p>
+        <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <h3 className="text-[clamp(1.75rem,3vw,2.5rem)] font-semibold tracking-[-0.03em] text-foreground">
+            <h3 className="font-[family-name:var(--font-display)] text-[clamp(2.1rem,3.5vw,3.1rem)] font-bold tracking-[-0.04em]">
               {project.title}
             </h3>
-            <p className="mt-2 text-base text-[var(--accent)] sm:text-lg">
+            <p className="mt-2 text-lg text-[rgba(244,247,250,0.7)] sm:text-xl">
               {project.subtitle}
             </p>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[rgba(244,247,250,0.65)] sm:text-lg">
               {project.description}
             </p>
           </div>
@@ -37,16 +39,13 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
         </div>
 
         {project.stats ? (
-          <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <dl className="mt-8 grid grid-cols-2 gap-px bg-[rgba(244,247,250,0.12)] sm:grid-cols-4">
             {project.stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-xl border border-[var(--border)] bg-[rgba(7,11,20,0.55)] p-4"
-              >
-                <dt className="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-[var(--muted-dim)]">
+              <div key={stat.label} className="bg-[var(--hero-plane)] p-4">
+                <dt className="font-mono text-xs uppercase tracking-[0.14em] text-[rgba(244,247,250,0.45)] md:text-sm">
                   {stat.label}
                 </dt>
-                <dd className="mt-1 text-2xl font-semibold tracking-tight text-foreground">
+                <dd className="mt-1 font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight md:text-3xl">
                   {stat.value}
                 </dd>
               </div>
@@ -55,19 +54,19 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
         ) : null}
       </div>
 
-      <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr] lg:p-10">
+      <div className="grid gap-8 border-t border-[rgba(244,247,250,0.12)] p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr] lg:p-10">
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-[0.12em] text-foreground">
+          <h4 className="font-mono text-sm uppercase tracking-[0.14em] text-[rgba(244,247,250,0.5)]">
             Highlights
           </h4>
           <ul className="mt-4 space-y-2.5">
             {project.highlights.slice(0, 8).map((highlight) => (
               <li
                 key={highlight}
-                className="flex gap-2.5 text-sm leading-relaxed text-[var(--muted)]"
+                className="flex gap-3 text-base leading-relaxed text-[rgba(244,247,250,0.72)]"
               >
                 <span
-                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                  className="mt-2 h-px w-4 shrink-0 bg-[var(--accent)]"
                   aria-hidden="true"
                 />
                 <span>{highlight}</span>
@@ -76,7 +75,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
           </ul>
           <Link
             href={`/projects/${project.slug}`}
-            className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] hover:text-[#6ee7b7]"
+            className="mt-5 inline-flex items-center gap-1.5 text-base font-semibold text-[var(--accent)] hover:text-[#ff6b5a]"
           >
             Full project details
             <ArrowUpRight size={14} aria-hidden="true" />
@@ -84,20 +83,19 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-[0.12em] text-foreground">
+          <h4 className="font-mono text-sm uppercase tracking-[0.14em] text-[rgba(244,247,250,0.5)]">
             Stack
           </h4>
           <ul className="mt-4 flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
-              <li key={tech} className="badge">
+              <li
+                key={tech}
+                className="border border-[rgba(244,247,250,0.2)] px-2.5 py-1 text-sm text-[rgba(244,247,250,0.8)]"
+              >
                 {tech}
               </li>
             ))}
           </ul>
-          <p className="mt-5 text-xs leading-relaxed text-[var(--muted-dim)]">
-            Railway and Vercel are part of this project&apos;s deployment
-            architecture, not dependencies of this portfolio.
-          </p>
         </div>
       </div>
     </article>

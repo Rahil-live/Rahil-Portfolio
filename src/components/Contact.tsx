@@ -6,64 +6,62 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="section-pad bg-[rgba(11,18,32,0.45)]"
+      className="section-pad bg-[var(--hero-plane)] text-[var(--hero-plane-text)]"
       aria-labelledby="contact-heading"
     >
-      <div className="container-page">
-        <div className="card-surface relative overflow-hidden px-6 py-10 sm:px-10 sm:py-14 lg:px-14">
-          <div
-            className="pointer-events-none absolute -right-10 -top-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(52,211,153,0.16),transparent_70%)]"
-            aria-hidden="true"
-          />
-          <div className="relative max-w-2xl">
-            <p className="section-eyebrow mb-3">Contact</p>
-            <h2 id="contact-heading" className="section-title">
-              Let&apos;s build something useful.
-            </h2>
-            <p className="section-copy mt-4">
-              I&apos;m open to opportunities involving frontend, mobile,
-              full-stack and AI-powered application development.
-            </p>
+      <div className="container-page grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-end lg:gap-16">
+        <div>
+          <p className="font-mono text-sm uppercase tracking-[0.16em] text-[var(--accent)]">
+            06 — Contact
+          </p>
+          <h2
+            id="contact-heading"
+            className="mt-4 font-[family-name:var(--font-display)] text-[clamp(2.25rem,4.2vw,3.5rem)] font-extrabold leading-[1.05] tracking-[-0.04em]"
+          >
+            Let&apos;s build something useful.
+          </h2>
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[rgba(244,247,250,0.68)] md:text-xl">
+            Open to frontend, mobile, full-stack and AI-powered application work.
+          </p>
+        </div>
 
-            <div className="mt-6 space-y-2">
-              <a
-                href={`mailto:${profile.email}`}
-                className="block text-lg font-medium text-[var(--accent)] hover:text-[#6ee7b7]"
-              >
-                {profile.email}
-              </a>
-              <a
-                href={profile.phoneHref}
-                className="block text-base text-[var(--muted)] hover:text-foreground"
-              >
-                {profile.phone}
-              </a>
-            </div>
+        <div>
+          <a
+            href={`mailto:${profile.email}`}
+            className="block font-[family-name:var(--font-display)] text-2xl font-bold text-[var(--accent)] transition-colors hover:text-[#ff6b5a] sm:text-3xl"
+          >
+            {profile.email}
+          </a>
+          <a
+            href={profile.phoneHref}
+            className="mt-3 block text-lg text-[rgba(244,247,250,0.7)] transition-colors hover:text-[var(--hero-plane-text)]"
+          >
+            {profile.phone}
+          </a>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={`mailto:${profile.email}`} className="btn-primary">
-                <Mail size={16} aria-hidden="true" />
-                Email Me
-              </a>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
-                <LinkedinIcon size={16} />
-                LinkedIn
-              </a>
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-              >
-                <GithubIcon size={16} />
-                GitHub
-              </a>
-            </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href={`mailto:${profile.email}`} className="btn-primary">
+              <Mail size={16} aria-hidden="true" />
+              Email Me
+            </a>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 border border-[rgba(244,247,250,0.35)] px-[1.5rem] py-[0.95rem] text-base font-semibold text-[var(--hero-plane-text)] transition-colors hover:bg-[var(--hero-plane-text)] hover:text-[var(--hero-plane)]"
+            >
+              <LinkedinIcon size={16} />
+              LinkedIn
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 border border-[rgba(244,247,250,0.35)] px-[1.5rem] py-[0.95rem] text-base font-semibold text-[var(--hero-plane-text)] transition-colors hover:bg-[var(--hero-plane-text)] hover:text-[var(--hero-plane)]"
+            >
+              <GithubIcon size={16} />
+              GitHub
+            </a>
           </div>
         </div>
       </div>

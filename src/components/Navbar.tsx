@@ -49,25 +49,20 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 border-b transition-colors duration-300",
         scrolled
-          ? "border-[var(--border)] bg-[rgba(7,11,20,0.88)] backdrop-blur-md"
+          ? "border-[var(--border)] bg-[rgba(232,237,242,0.92)] backdrop-blur-md"
           : "border-transparent bg-transparent",
       )}
     >
       <nav
-        className="container-page flex h-16 items-center justify-between gap-4"
+        className="container-page flex h-[4.25rem] items-center justify-between gap-4 md:h-[4.5rem]"
         aria-label="Primary"
       >
         <Link
           href="/#home"
-          className="flex items-center gap-2.5 font-semibold tracking-tight text-foreground"
+          className="font-[family-name:var(--font-display)] text-xl font-extrabold tracking-tight text-foreground md:text-[1.35rem]"
         >
-          <span
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-[var(--border-strong)] bg-[var(--card)] font-mono text-xs text-[var(--accent)]"
-            aria-hidden="true"
-          >
-            {profile.brand}
-          </span>
-          <span>{profile.name}</span>
+          {profile.name.split(" ")[0]}
+          <span className="text-[var(--accent)]">.</span>
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
@@ -75,7 +70,7 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="rounded-md px-3 py-2 text-sm text-[var(--muted)] transition-colors hover:text-foreground"
+                className="px-3 py-2 text-base text-[var(--muted)] transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -86,13 +81,13 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href={`mailto:${profile.email}`}
-            className="btn-primary hidden px-4 py-2 text-sm sm:inline-flex"
+            className="btn-primary hidden px-4 py-2.5 text-base sm:inline-flex"
           >
             Let&apos;s Talk
           </a>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] text-foreground lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center border border-[var(--border)] text-foreground lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -106,7 +101,7 @@ export function Navbar() {
       <div
         id={menuId}
         className={cn(
-          "border-t border-[var(--border)] bg-[rgba(7,11,20,0.98)] lg:hidden",
+          "border-t border-[var(--border)] bg-[var(--background)] lg:hidden",
           open ? "block" : "hidden",
         )}
       >
@@ -116,7 +111,7 @@ export function Navbar() {
               <Link
                 href={link.href}
                 onClick={closeMenu}
-                className="block rounded-md px-3 py-3 text-base text-[var(--muted)] transition-colors hover:bg-[var(--accent-soft)] hover:text-foreground"
+                className="block px-3 py-3.5 text-lg text-[var(--muted)] transition-colors hover:bg-[var(--accent-soft)] hover:text-foreground"
               >
                 {link.label}
               </Link>

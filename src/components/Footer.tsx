@@ -12,26 +12,19 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--border)] bg-[rgba(7,11,20,0.95)]">
+    <footer className="border-t border-[var(--border)] bg-[var(--background)]">
       <div className="container-page py-10 md:py-12">
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span
-                className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-[var(--border-strong)] bg-[var(--card)] font-mono text-xs text-[var(--accent)]"
-                aria-hidden="true"
-              >
-                {profile.brand}
-              </span>
-              <p className="font-semibold tracking-tight text-foreground">
-                {profile.name}
-              </p>
-            </div>
-            <p className="mt-3 text-sm text-[var(--muted)]">{profile.title}</p>
+            <p className="font-[family-name:var(--font-display)] text-2xl font-extrabold tracking-tight text-foreground">
+              {profile.name.split(" ")[0]}
+              <span className="text-[var(--accent)]">.</span>
+            </p>
+            <p className="mt-3 text-base text-[var(--muted)]">{profile.title}</p>
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted-dim)]">
+            <p className="font-mono text-sm uppercase tracking-[0.14em] text-[var(--muted-dim)]">
               Navigation
             </p>
             <ul className="mt-3 space-y-2">
@@ -39,7 +32,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--muted)] transition-colors hover:text-foreground"
+                    className="text-base text-[var(--muted)] transition-colors hover:text-foreground"
                   >
                     {link.label}
                   </Link>
@@ -49,10 +42,10 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted-dim)]">
+            <p className="font-mono text-sm uppercase tracking-[0.14em] text-[var(--muted-dim)]">
               Contact
             </p>
-            <div className="mt-3 space-y-2 text-sm">
+            <div className="mt-3 space-y-2 text-base">
               <a
                 href={profile.phoneHref}
                 className="block text-[var(--muted)] hover:text-foreground"
@@ -72,7 +65,7 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-10 border-t border-[var(--border)] pt-6 text-sm text-[var(--muted-dim)]">
+        <p className="mt-10 border-t border-[var(--border)] pt-6 text-base text-[var(--muted-dim)]">
           © 2026 {profile.name}. All rights reserved.
         </p>
       </div>
