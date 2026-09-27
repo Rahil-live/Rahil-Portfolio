@@ -47,14 +47,18 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-colors duration-300",
+        "sticky top-0 z-50 overflow-visible border-b transition-[background-color,border-color,backdrop-filter] duration-300",
         scrolled
-          ? "border-[var(--border)] bg-[rgba(232,237,242,0.92)] backdrop-blur-md"
+          ? "border-[var(--border)] bg-[rgba(232,237,242,0.55)] backdrop-blur-xl"
           : "border-transparent bg-transparent",
       )}
     >
+      <div
+        aria-hidden="true"
+        className={cn("scroll-frost", scrolled && "scroll-frost-on")}
+      />
       <nav
-        className="container-page flex h-[4.25rem] items-center justify-between gap-4 md:h-[4.5rem]"
+        className="container-page relative z-10 flex h-[4.25rem] items-center justify-between gap-4 md:h-[4.5rem]"
         aria-label="Primary"
       >
         <Link
@@ -101,7 +105,7 @@ export function Navbar() {
       <div
         id={menuId}
         className={cn(
-          "border-t border-[var(--border)] bg-[var(--background)] lg:hidden",
+          "relative z-10 border-t border-[var(--border)] bg-[var(--background)] lg:hidden",
           open ? "block" : "hidden",
         )}
       >

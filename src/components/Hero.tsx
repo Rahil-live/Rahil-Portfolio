@@ -61,17 +61,9 @@ export function Hero() {
           </div>
 
           <div className="my-12 lg:my-0">
-            <h1
-              id="hero-heading"
-              className="font-[family-name:var(--font-display)] font-extrabold leading-[0.86] tracking-[-0.055em] text-foreground"
-            >
-              <span className="hero-name-line block max-w-full text-[clamp(2.75rem,12vw,7.75rem)]">
-                {firstName}
-              </span>
-              <span
-                className="hero-name-line block max-w-full text-[clamp(2.75rem,12vw,7.75rem)]"
-                style={{ animationDelay: "90ms" }}
-              >
+            <h1 id="hero-heading" className="hero-name">
+              <span className="hero-name-line">{firstName}</span>
+              <span className="hero-name-line" style={{ animationDelay: "90ms" }}>
                 {lastName}
                 <span className="text-[var(--accent)]">.</span>
               </span>

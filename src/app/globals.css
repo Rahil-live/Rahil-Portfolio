@@ -59,7 +59,6 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.0625rem;
   line-height: 1.65;
-  overflow-x: clip;
   overflow-wrap: break-word;
 }
 
@@ -85,6 +84,11 @@ body::before {
 body > * {
   position: relative;
   z-index: 1;
+}
+
+body > header {
+  position: sticky;
+  z-index: 50;
 }
 
 ::selection {
@@ -336,9 +340,90 @@ body > * {
   }
 }
 
+.hero-name {
+  container-type: inline-size;
+  width: 100%;
+  max-width: 100%;
+  color: var(--foreground);
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+
+.hero-name-line {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  font-size: clamp(2rem, 4.6vw, 5.25rem);
+  line-height: 0.92;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+@supports (width: 1cqi) {
+  .hero-name-line {
+    /* Sized to the column, not the viewport, so "Barawal" stays one line. */
+    font-size: clamp(2rem, 10.4cqi, 5.25rem);
+  }
+}
+
+.scroll-frost {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  height: 6.5rem;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(232, 237, 242, 0.72),
+    rgba(232, 237, 242, 0.28) 58%,
+    transparent
+  );
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-mask-image: linear-gradient(to bottom, #000 28%, transparent);
+  mask-image: linear-gradient(to bottom, #000 28%, transparent);
+  transition: opacity 280ms ease;
+}
+
+.scroll-frost-on {
+  opacity: 1;
+}
+
+@supports (animation-timeline: view()) {
+  main > section:not(#home) {
+    animation: section-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 22%;
+  }
+}
+
+@keyframes section-rise {
+  from {
+    opacity: 0.35;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-scroll-line,
-  .hero-marquee {
+  .hero-marquee,
+  main > section:not(#home) {
     animation: none;
+  }
+
+  .scroll-frost {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transition: none;
   }
 }
