@@ -1,27 +1,43 @@
-# Rahil Barawal — Personal Portfolio
+# Rahil Barawal
 
-Premium personal developer portfolio for **Rahil Barawal**, Mobile App Developer & Frontend Developer.
+**Mobile App Developer & Frontend Developer** · New Delhi, India
 
-Deployed as a standalone **Next.js → Vercel** application. No backend, database, API keys, or Railway dependency for this site.
+I ship production web and mobile products — from UI and architecture through API integration, AI features, and deployment. 5+ years with Angular, Ionic, React, Next.js, and TypeScript.
 
-## Overview
+[Portfolio](https://rahilbarawal.vercel.app) · [LinkedIn](https://linkedin.com/in/rahil-barawal) · [Email](mailto:rahil8080@gmail.com)
 
-Recruiter-focused portfolio showcasing:
+## Experience
 
-- Professional experience (Swivelt, Nityo / Istrives)
-- Frontend & mobile expertise (Angular, Ionic, React, Next.js, TypeScript)
-- AI / full-product engineering (Next.js, Node.js, PostgreSQL, RAG, payments)
-- Live products: DhandaMart, AidLoop, RupeeRadar, The Draft Desk, Study Pilot Engine
+**Swivelt India** — Mobile App / Frontend Developer · Sep 2023 – Present  
+Istrives, a business performance app on Google Play and the App Store. Work across 20+ modules (CRM, tasks, tickets, people, payroll, expenses). Redesigned CRM into a configurable Angular framework and removed 100,000+ lines. Own REST API integration, release validation, and weekly product demos with leadership.
 
-## Tech stack
+**Nityo Infotech** — Mobile App / Frontend Developer · Dec 2020 – Sep 2023  
+Same product. Built Angular and Ionic interfaces, the iGraph analytics module (ApexCharts), faster filtering on data-heavy views, and REST integrations through to production release.
 
-- Next.js (App Router)
-- React
-- TypeScript
-- Tailwind CSS
-- Lucide React
+## Selected work
 
-## Local setup
+| Project | What it is | Live |
+| --- | --- | --- |
+| DhandaMart | AI-powered B2B procurement marketplace (Next.js, Node.js, PostgreSQL, RAG, payments) | [dhandamart.com](https://dhandamart.com) |
+| AidLoop | Community aid coordination — raise needs or fulfill requests | [Live app](https://aidloopcjp.streamlit.app) |
+| RupeeRadar | Bank-statement analysis into categorized spending insights | [Live app](https://rupee-radar-bay.vercel.app) |
+| The Draft Desk | Gmail thread analysis with human-approved draft replies | [Live app](https://the-chief-of-staff-rb.streamlit.app) |
+| Study Pilot Engine | Syllabus PDF to a personalized study calendar | [Live app](https://rahilstudypilot.streamlit.app) |
+
+## Stack
+
+- **Frontend & mobile:** Angular, Ionic, Capacitor, React, Next.js, TypeScript, Android, iOS
+- **Product & AI:** Node.js, PostgreSQL, REST APIs, AI/RAG, LLM integration, production deployment
+
+## Education
+
+- MBA — IT & Operations, World College of Technology and Management (2024 – 2026)
+- BSc IT, Manav Rachna International Institute of Research and Studies (2017 – 2020)
+- Data Analytics with Generative AI — IIT Roorkee (in progress)
+
+## This site
+
+The portfolio itself is a Next.js app (React, TypeScript, Tailwind CSS). No backend or environment variables.
 
 ```bash
 npm install
@@ -29,94 +45,3 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
-
-## Production build
-
-```bash
-npm run build
-npm start
-```
-
-## Vercel deployment
-
-1. Push this repository to GitHub.
-2. Import the repo in [Vercel](https://vercel.com).
-3. Use default Next.js settings (no env vars required).
-4. Deploy.
-
-Architecture for this portfolio: **Next.js → Vercel only**.
-
-## Where profile information lives
-
-All personal contact and positioning data:
-
-```text
-src/data/profile.ts
-```
-
-Update name, title, email, phone, GitHub, LinkedIn, SEO copy, and related fields there. Components consume this file instead of hardcoding profile URLs.
-
-## Where projects live
-
-```text
-src/data/projects.ts
-```
-
-Each project follows the `Project` interface (`slug`, `title`, `subtitle`, `description`, `technologies`, `highlights`, `category`, optional `liveUrl` / `githubUrl`, etc.).
-
-### Add a new project
-
-1. Append an object to the `projects` array in `src/data/projects.ts`.
-2. Set a unique `slug` (used for `/projects/[slug]`).
-3. Choose `category`: `"Frontend" | "Mobile" | "Full Stack" | "AI"`.
-4. Add `liveUrl` / `githubUrl` only when real.
-5. Optionally set `featured: true` for the primary featured project.
-6. Rebuild / redeploy.
-
-Related data files:
-
-- `src/data/experience.ts` — work history
-- `src/data/skills.ts` — skill groups
-- `src/data/education.ts` — education & certifications
-
-## Project structure
-
-```text
-src/
-  app/
-    layout.tsx
-    page.tsx
-    globals.css
-    robots.ts
-    sitemap.ts
-    projects/[slug]/page.tsx
-  components/
-    Navbar.tsx
-    Hero.tsx
-    CredibilityBar.tsx
-    About.tsx
-    Skills.tsx
-    Experience.tsx
-    Projects.tsx
-    ProjectCard.tsx
-    FeaturedProject.tsx
-    Contact.tsx
-    SocialLinks.tsx
-    Footer.tsx
-    Education.tsx
-  data/
-    profile.ts
-    projects.ts
-    experience.ts
-    skills.ts
-    education.ts
-  lib/
-    utils.ts
-```
-
-## Notes
-
-- Contact is mailto / LinkedIn / GitHub / phone only — no backend contact form.
-- Railway, Supabase, PostgreSQL, etc. may appear in **project** tech stacks; they are not used by this portfolio app.
-- Update `siteUrl` in `src/data/profile.ts` after you know your final Vercel domain (used for sitemap, canonical, and JSON-LD).
-# Rahil-Portfolio
